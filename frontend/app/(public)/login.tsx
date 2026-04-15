@@ -30,8 +30,9 @@ export default function LoginScreen() {
   };
 
   return (
+    
     <View style={styles.container}>
-      <Text style={styles.title}>💈 Welcome Back</Text>
+      <Text style={styles.title}> Welcome Back</Text>
       <Text style={styles.subtitle}>Login to your account</Text>
 
       <TextInput
@@ -62,7 +63,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1a1a2e',
+    backgroundColor: '#fcfcfc',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#e94560',
+    color: '#442c0c',
     marginBottom: 10,
   },
   subtitle: {
@@ -87,10 +88,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     fontSize: 16,
     borderWidth: 1,
-    borderColor: '#e94560',
+    borderColor: '#442c0c',
   },
   button: {
-    backgroundColor: '#e94560',
+    backgroundColor: '#442c0c',
     paddingVertical: 15,
     paddingHorizontal: 50,
     borderRadius: 30,
