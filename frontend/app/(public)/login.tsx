@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { loginEmployee } from '@/lib/api';
 
@@ -30,32 +30,38 @@ export default function LoginScreen() {
   };
 
   return (
-    
     <View style={styles.container}>
-      <Text style={styles.title}> Welcome Back</Text>
-      <Text style={styles.subtitle}>Login to your account</Text>
+      <View style={styles.card}>
+        <Image
+          source={require('@/assets/images/bbshop.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+        <Text style={styles.title}>Premier Barber Shop</Text>
+        <Text style={styles.subtitle}>Admin access portal</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Username or Contact Number"
-        placeholderTextColor="#888"
-        value={contactNo}
-        onChangeText={setContactNo}
-        autoCapitalize="none"
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Username or Contact Number"
+          placeholderTextColor="#8d8a83"
+          value={contactNo}
+          onChangeText={setContactNo}
+          autoCapitalize="none"
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#888"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          placeholderTextColor="#8d8a83"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
 
-      <TouchableOpacity style={styles.button} onPress={handleLogin} disabled={loading}>
-        <Text style={styles.buttonText}>{loading ? 'Logging in...' : 'Login'}</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleLogin} disabled={loading}>
+          <Text style={styles.buttonText}>{loading ? 'Logging in...' : 'Login'}</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -63,41 +69,63 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fcfcfc',
+    backgroundColor: '#efede9',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+    padding: 24,
+  },
+  card: {
+    width: '100%',
+    maxWidth: 420,
+    alignItems: 'center',
+    backgroundColor: '#f8f6f1',
+    borderRadius: 28,
+    paddingHorizontal: 28,
+    paddingVertical: 32,
+    borderWidth: 1,
+    borderColor: '#d8c7a0',
+    shadowColor: '#8b6f2b',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.12,
+    shadowRadius: 24,
+    elevation: 8,
+  },
+  logo: {
+    width: 220,
+    height: 220,
+    marginBottom: 8,
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#442c0c',
-    marginBottom: 10,
+    color: '#5f4615',
+    textAlign: 'center',
   },
   subtitle: {
-    fontSize: 16,
-    color: '#ffffff',
-    marginBottom: 40,
+    fontSize: 15,
+    color: '#8b7b5d',
+    marginTop: 8,
+    marginBottom: 28,
   },
   input: {
     width: '100%',
-    backgroundColor: '#16213e',
-    color: '#ffffff',
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 15,
+    backgroundColor: '#ffffff',
+    color: '#35260f',
+    paddingVertical: 16,
+    paddingHorizontal: 18,
+    borderRadius: 14,
+    marginBottom: 16,
     fontSize: 16,
     borderWidth: 1,
-    borderColor: '#442c0c',
+    borderColor: '#bdb2a2',
   },
   button: {
-    backgroundColor: '#442c0c',
-    paddingVertical: 15,
-    paddingHorizontal: 50,
-    borderRadius: 30,
+    backgroundColor: '#1b56b3',
+    paddingVertical: 16,
+    borderRadius: 14,
     width: '100%',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 6,
   },
   buttonText: {
     color: '#ffffff',
